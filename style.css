@@ -1,9 +1,5 @@
-:root {
-    --speed: 20s;
-    --animation-play-state: running;
-}
 
-body {
+    body {
     margin: 0;
     overflow: hidden;
     background: black;
@@ -15,68 +11,48 @@ body {
     position: relative;
 }
 
-/* Sun */
+/* خورشید */
 .sun {
-    width: 150px;
+    width: 12vh;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.sun img {
-    width: 100%;
-}
+.sun img { width: 100%; }
 
-/* Orbits */
+/* مدارها */
 .orbit {
     position: absolute;
     top: 50%;
     left: 50%;
-    border: 1px dashed rgba(255,255,255,0.6);
+    border: 1px dashed rgba(255,255,255,0.4);
     border-radius: 50%;
-    animation: spin var(--speed) linear infinite;
-    animation-play-state: var(--animation-play-state);
+    transform-origin: center;
 }
 
-/* Orbit sizes */
-.mercury-orbit { width: 200px; height: 200px; margin: -100px; }
-.venus-orbit   { width: 280px; height: 280px; margin: -140px; }
-.earth-orbit   { width: 360px; height: 360px; margin: -180px; }
-.mars-orbit    { width: 440px; height: 440px; margin: -220px; }
-.jupiter-orbit { width: 540px; height: 540px; margin: -270px; }
-.saturn-orbit  { width: 640px; height: 640px; margin: -320px; }
-.uranus-orbit  { width: 720px; height: 720px; margin: -360px; }
-.neptune-orbit { width: 820px; height: 820px; margin: -410px; }
-
-/* Planet */
+/* سیاره */
 .planet {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
 }
-
 .planet img {
-    width: 40px;
-    height: 40px;
+    width: 5vh;
     border-radius: 50%;
 }
 
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
-}
+/* اندازه مدارها → کاملاً ریسپانسیو */
+.mercury-orbit { width: 20vh; height: 20vh; margin: -10vh; animation: spin 4s linear infinite; }
+.venus-orbit   { width: 28vh; height: 28vh; margin: -14vh; animation: spin 10s linear infinite; }
+.earth-orbit   { width: 36vh; height: 36vh; margin: -18vh; animation: spin 16s linear infinite; }
+.mars-orbit    { width: 44vh; height: 44vh; margin: -22vh; animation: spin 30s linear infinite; }
+.jupiter-orbit { width: 54vh; height: 54vh; margin: -27vh; animation: spin 50s linear infinite; }
+.saturn-orbit  { width: 64vh; height: 64vh; margin: -32vh; animation: spin 80s linear infinite; }
+.uranus-orbit  { width: 74vh; height: 74vh; margin: -37vh; animation: spin 120s linear infinite; }
+.neptune-orbit { width: 84vh; height: 84vh; margin: -42vh; animation: spin 200s linear infinite; }
 
-/* Controls */
-.controls {
-    position: fixed;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 15px;
-}
-button, input[type=range] {
-    padding: 10px;
-    border-radius: 10px;
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
