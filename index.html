@@ -1,147 +1,28 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>love</title>
-<style>
-  body {
-    margin: 0;
-    height: 100vh;
-    background: radial-gradient(circle at center, #050010, #000);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-  }
-
-  svg {
-    width: 300px;
-    height: 300px;
-    z-index: 2;
-    filter: drop-shadow(0 0 15px #ff00c8)
-            drop-shadow(0 0 40px #ff33ff)
-            drop-shadow(0 0 80px #ff66ff);
-    animation: glow 2s ease-in-out infinite;
-  }
-
-  .heart {
-    fill: none;
-    stroke: url(#grad);
-    stroke-width: 10;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  @keyframes glow {
-    0%, 100% {
-      filter: drop-shadow(0 0 20px #ff00ff)
-              drop-shadow(0 0 60px #ff33ff);
-      transform: scale(1);
-    }
-    50% {
-      filter: drop-shadow(0 0 40px #ff00ff)
-              drop-shadow(0 0 100px #ff33ff);
-      transform: scale(1.1);
-    }
-  }
-
-  /* نور مرکزی قلب */
-  .core-glow {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    background: radial-gradient(circle, #ff00aa, transparent 70%);
-    border-radius: 50%;
-    filter: blur(20px);
-    z-index: 3;
-    animation: pulse 1.5s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { transform: scale(0.9); opacity: 0.6; }
-    50% { transform: scale(1.3); opacity: 1; }
-  }
-</style>
+<title>Solar System</title>
+<link rel=stylesheet href="style.css">
 </head>
 <body>
-
-  <!-- پارتیکل‌های انرژی -->
-  <canvas id="particles"></canvas>
-
-  <!-- نور مرکزی قلب -->
-  <div class="core-glow"></div>
-
-  <!-- قلب SVG -->
-  <svg viewBox="0 0 200 200">
-    <defs>
-      <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#ff00ff"/>
-        <stop offset="50%" stop-color="#ff33cc"/>
-        <stop offset="100%" stop-color="#ff99ff"/>
-      </linearGradient>
-    </defs>
-    <path class="heart" d="M100,170 C20,100, 50,20, 100,60 C150,20, 180,100, 100,170 Z"/>
-  </svg>
-
-<script>
-  // پارتیکل‌ها
-  const canvas = document.getElementById('particles');
-  const ctx = canvas.getContext('2d');
-  let W, H;
-
-  function resize() {
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-  }
-  window.addEventListener('resize', resize);
-  resize();
-
-  class Particle {
-    constructor() { this.reset(); }
-    reset() {
-      this.x = W/2 + (Math.random()-0.5)*300;
-      this.y = H/2 + (Math.random()-0.5)*300;
-      this.size = Math.random()*2;
-      this.speedX = (Math.random()-0.5)*0.5;
-      this.speedY = (Math.random()-0.5)*0.5;
-      this.alpha = Math.random()*0.6+0.4;
-      this.color = `hsl(${Math.random()*60+300},100%,70%)`;
-    }
-    update() {
-      this.x += this.speedX;
-      this.y += this.speedY;
-      this.alpha -= 0.002;
-      if(this.alpha <= 0) this.reset();
-    }
-    draw() {
-      ctx.globalAlpha = this.alpha;
-      ctx.fillStyle = this.color;
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
-      ctx.fill();
-    }
-  }
-
-  let particles = [];
-  for(let i=0;i<200;i++) particles.push(new Particle());
-
-  function animate() {
-    ctx.clearRect(0,0,W,H);
-    particles.forEach(p=>{p.update();p.draw();});
-    requestAnimationFrame(animate);
-  }
-  animate();
-</script>
-
+  <div class="container">
+    <div class="sun">
+      <img src="./images/sun.png" alt="sun">
+    </div>
+    <div class="mercury"></div>
+    <div class="venus"></div>
+    <div class="earth">
+      <div class="moon"></div>
+    </div>
+    <div class="mars"></div>
+    <div class="jupiter"></div>
+    <div class="saturn"></div>
+    <div class="uranus"></div>
+    <div class="neptune"></div>
+    <div class="pluto">
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
+
 </html>
-
-
