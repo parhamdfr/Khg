@@ -1,14 +1,36 @@
-function createStars() {
-  const container = document.querySelector("body");
-  for (let i = 0; i < 1000; i++) {
-    // Increase the number of stars to 1000
-    const star = document.createElement("div");
-    star.className = "star";
-    star.style.width = ".1px";
-    star.style.height = ".1px";
-    star.style.top = Math.random() * 100 + "%";
-    star.style.left = Math.random() * 100 + "%";
-    container.appendChild(star);
-  }
-}
-createStars();
+// Pause / Play
+let isRunning = true;
+
+const toggleBtn = document.getElementById("toggle");
+toggleBtn.onclick = () => {
+    isRunning = !isRunning;
+
+    document.documentElement.style.setProperty(
+        "--animation-play-state",
+        isRunning ? "running" : "paused"
+    );
+
+    toggleBtn.textContent = isRunning ? "⏸ توقف" : "▶️ شروع";
+};
+
+// کنترل سرعت
+const speedSlider = document.getElementById("speed");
+speedSlider.oninput = () => {
+    const s = speedSlider.value;
+    document.documentElement.style.setProperty("--speed", s + "s");
+};
+
+// نمایش نام سیاره
+const infoBox = document.getElementById("infoBox");
+
+document.querySelectorAll(".planet").forEach(planet => {
+    planet.addEventListener("click", () => {
+        const name = planet.dataset.name;
+        infoBox.textContent = "سیاره: " + name;
+        infoBox.style.opacity = 1;
+
+        setTimeout(() => {
+            infoBox.style.opacity = 0;
+        }, 1500);
+    });
+});
