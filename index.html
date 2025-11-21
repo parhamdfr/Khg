@@ -1,28 +1,57 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar System</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سیستم خورشیدی</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
 
+    <!-- خورشید -->
     <div class="sun">
-        <img src="images/sun.png">
+        <img src="images/sun.png" alt="خورشید" data-planet="Sun">
     </div>
 
-    <div class="orbit mercury"><div class="planet"><img src="images/mercury.png"></div></div>
-    <div class="orbit venus"><div class="planet"><img src="images/venus.png"></div></div>
-    <div class="orbit earth"><div class="planet"><img src="images/earth.png"></div></div>
-    <div class="orbit mars"><div class="planet"><img src="images/mars.png"></div></div>
-    <div class="orbit jupiter"><div class="planet"><img src="images/jupiter.png"></div></div>
-    <div class="orbit saturn"><div class="planet"><img src="images/saturn.png"></div></div>
-    <div class="orbit uranus"><div class="planet"><img src="images/uranus.png"></div></div>
-    <div class="orbit neptune"><div class="planet"><img src="images/neptune.png"></div></div>
+    <!-- سیارات -->
+    <div class="orbit mercury">
+        <div class="planet"><img src="images/mercury.png" alt="عطارد" data-planet="Mercury"></div>
+    </div>
+    <div class="orbit venus">
+        <div class="planet"><img src="images/venus.png" alt="زهره" data-planet="Venus"></div>
+    </div>
+    <div class="orbit earth">
+        <div class="planet"><img src="images/earth.png" alt="زمین" data-planet="Earth"></div>
+    </div>
+    <div class="orbit mars">
+        <div class="planet"><img src="images/mars.png" alt="مریخ" data-planet="Mars"></div>
+    </div>
+    <div class="orbit jupiter">
+        <div class="planet"><img src="images/jupiter.png" alt="مشتری" data-planet="Jupiter"></div>
+    </div>
+    <div class="orbit saturn">
+        <div class="planet"><img src="images/saturn.png" alt="زحل" data-planet="Saturn"></div>
+    </div>
+    <div class="orbit uranus">
+        <div class="planet"><img src="images/uranus.png" alt="اورانوس" data-planet="Uranus"></div>
+    </div>
+    <div class="orbit neptune">
+        <div class="planet"><img src="images/neptune.png" alt="نپتون" data-planet="Neptune"></div>
+    </div>
 
+</div>
+
+<!-- مودال اطلاعات -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <img id="planet-img" src="" alt="">
+        <h2 id="planet-name"></h2>
+        <p id="planet-info"></p>
+        <ul id="planet-details"></ul>
+    </div>
 </div>
 
 <script src="script.js"></script>
