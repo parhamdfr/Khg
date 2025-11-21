@@ -1,30 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>solar system pk</title>
-<link rel=stylesheet href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <div class="sun">
-      <img src="./images/sun.png" alt="sun">
-    </div>
-    <div class="mercury"></div>
-    <div class="venus"></div>
-    <div class="earth">
-      <div class="moon"></div>
-    </div>
-    <div class="mars"></div>
-    <div class="jupiter"></div>
-    <div class="saturn"></div>
-    <div class="uranus"></div>
-    <div class="neptune"></div>
-    <div class="pluto">
-    </div>
-  </div>
-  <script src="script.js"></script>
-</body>
 
+<div class="controls">
+    <button id="toggle">⏸ توقف</button>
+    <label>
+        سرعت:
+        <input type="range" id="speed" min="5" max="40" value="20">
+    </label>
+</div>
+
+<div class="info" id="infoBox">یک سیاره را لمس کنید…</div>
+
+<div class="container">
+
+    <div class="sun">
+        <img src="images/sun.png" alt="Sun">
+    </div>
+
+    <div class="orbit mercury-orbit"></div>
+    <div class="planet mercury" data-name="Mercury"><img src="images/mercury.png"></div>
+
+    <div class="orbit venus-orbit"></div>
+    <div class="planet venus" data-name="Venus"><img src="images/venus.png"></div>
+
+    <div class="orbit earth-orbit"></div>
+    <div class="planet earth" data-name="Earth"><img src="images/earth.png"></div>
+
+    <div class="orbit mars-orbit"></div>
+    <div class="planet mars" data-name="Mars"><img src="images/mars.png"></div>
+
+    <div class="orbit jupiter-orbit"></div>
+    <div class="planet jupiter" data-name="Jupiter"><img src="images/jupiter.png"></div>
+
+    <div class="orbit saturn-orbit"></div>
+    <div class="planet saturn" data-name="Saturn"><img src="images/saturn.png"></div>
+
+    <div class="orbit uranus-orbit"></div>
+    <div class="planet uranus" data-name="Uranus"><img src="images/uranus.png"></div>
+
+    <div class="orbit neptune-orbit"></div>
+    <div class="planet neptune" data-name="Neptune"><img src="images/neptune.png"></div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
 </html>
 
 
